@@ -1,5 +1,8 @@
 package hw1.task2;
 
+import org.math.plot.Plot2DPanel;
+
+import javax.swing.*;
 import java.util.function.Function;
 
 public class Main {
@@ -29,6 +32,26 @@ public class Main {
         }
     }
 
+    private static void createPlot(double r, double start, int N, String nameOfPlot) {
+        double[] x = new double[N];
+        for (int i = 0; i < N; i++) {
+            x[i] = (double) i;
+        }
+;
+        double[] y = SI.getValues(r, start, N);
+
+        // create your PlotPanel (you can use it as a JPanel)
+        Plot2DPanel plot = new Plot2DPanel();
+
+        // add a line plot to the PlotPanel
+        plot.addLinePlot("my plot", x, y);
+
+        // put the PlotPanel in a JFrame, as a JPanel
+        JFrame frame = new JFrame(nameOfPlot);
+        frame.setContentPane(plot);
+        frame.setVisible(true);
+    }
+
     public static void main(String[] args) {
         final double left = 0.0;
         final double right = 1000.0;
@@ -41,5 +64,10 @@ public class Main {
         System.out.println("r\' = " + r1);
         System.out.println("r\'\' = " + r2);
         System.out.println("r\'\'\' = " + r3);
+
+        createPlot(r1 - 0.5, start, 50, "Сходимость к нулю");
+        createPlot(r1 + 0.5, start, 50, "Монотонная к 1-1/r");
+        createPlot(r3 - 0.1, start, 50, "Зигзагообразная к 1-1/r");
+        createPlot(r3 + 0.5, start, 50, "Расходимость");
     }
 }

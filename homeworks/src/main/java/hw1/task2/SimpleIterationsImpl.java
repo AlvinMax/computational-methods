@@ -4,8 +4,7 @@ import java.util.Iterator;
 import java.util.function.Function;
 
 public class SimpleIterationsImpl implements SimpleIterations {
-
-    private static final double EPS = 1e-5;
+    private static final int ITERATIONS = 100000;
 
     @Override
     public Iterator<Double> getIterator(Function<Double, Double> f, double start) {
@@ -30,12 +29,23 @@ public class SimpleIterationsImpl implements SimpleIterations {
     public boolean checkR(double r, double start, Function<Window, Boolean> f) {
         final Function<Double, Double> rFunction = x -> r * x * (1 - x);
         final Iterator <Double> it = getIterator(rFunction, start);
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < ITERATIONS; i++) {
             it.next();
         }
 
         final Window window = new Window(it.next(), it.next(), it.next());
         return f.apply(window);
+    }
+
+    @Override
+    public double[] getValues(double r, double start, int N) {
+        final Function<Double, Double> rFunction = x -> r * x * (1 - x);
+        final Iterator<Double> it = getIterator(rFunction, start);
+        double[] values = new double[N];
+        for (int i = 0; i < N; i++) {
+            values[i] = it.next();
+        }
+        return values;
     }
 
 
