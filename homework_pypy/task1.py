@@ -35,15 +35,23 @@ def non_recursion_localize(l_x, r_x, a, b, c, d):
 
     while l_y * r_y >= 0:
         if l_y >= 0:
-            r_x = l_x
-            r_y = l_y
-            l_x = l_x - 1
-            l_y = count_function(l_x, a, b, c, d)
+            if l_y == 0:
+                l_x = l_x - 1
+                l_y = count_function(l_x, a, b, c, d)
+            else:
+                r_x = l_x
+                r_y = l_y
+                l_x = l_x - 1
+                l_y = count_function(l_x, a, b, c, d)
         if r_y <= 0:
-            l_x = r_x
-            l_y = r_y
-            r_x = r_x + 1
-            r_y = count_function(r_x, a, b, c, d)
+            if r_y == 0:
+                r_x = r_x + 1
+                r_y = count_function(r_x, a, b, c, d)
+            else:
+                l_x = r_x
+                l_y = r_y
+                r_x = r_x + 1
+                r_y = count_function(r_x, a, b, c, d)
 
     return l_x, r_x
 
