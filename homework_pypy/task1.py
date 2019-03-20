@@ -2,13 +2,13 @@ from math import sqrt
 
 
 def count_function(x, a, b, c, d):
-    a = a * x ** 3
-    b = b * x ** 2
+    a = a * (x ** 3)
+    b = b * (x ** 2)
     c = c * x
     return a + b + c + d
 
 def diff(x, a, b, c, d):
-    a = 3 * a * x ** 2
+    a = 3 * a * (x ** 2)
     b = 2 * b * x
     return a + b + c
 
@@ -81,16 +81,10 @@ def half_division(eps, l, r, a, b, c, d):
         fl = count_function(l, a, b, c, d)
         m = (r + l) / 2
         fm = count_function(m, a, b, c, d)
-        if fl < 0:
-            if fm < 0:
-                l = m
-            else:
-                r = m
+        if (fl * fm < 0):
+            r = m
         else:
-            if fm < 0:
-                r = m
-            else:
-                l = m
+            l = m
 
     return l, r
 
@@ -117,7 +111,7 @@ a = int(input("a:"))
 b = int(input("b:"))
 c = int(input("c:"))
 d = int(input("d:"))
-eps = 0.00001
+eps = 0.000001
 
 (l1, r1), (l2, r2), (l3, r3) = localize(a, b, c, d)
 
