@@ -5,23 +5,23 @@ def count_function(x, a, b, c, d):
     a = a * (x ** 3)
     b = b * (x ** 2)
     c = c * x
-    return a + b + c + d
+    return a + b + c + d + .0
 
 def diff(x, a, b, c, d):
     a = 3 * a * (x ** 2)
     b = 2 * b * x
-    return a + b + c
+    return a + b + c + .0
 
 def count_extremum(a, b, c):
     a = 3 * a
     b = 2 * b
     D = b * b - 4 * a * c
 
-    if D < 0:
-        return 10000, 10000
+    if D < 0.0:
+        return 10000.0, 10000.0
 
-    if D == 0:
-        ans = (- b) / (2 * a)
+    if D == 0.0:
+        ans = (- b + .0) / (2 * a)
         return ans, ans
 
     D = sqrt(D)
@@ -77,14 +77,15 @@ def localize(a, b, c, d):
 
 
 def half_division(eps, l, r, a, b, c, d):
+    cnt = 0
     while abs(r - l) > eps:
         fl = count_function(l, a, b, c, d)
-        m = (r + l) / 2
+        m = (r + l) / 2.0
         fm = count_function(m, a, b, c, d)
         if (fl * fm < 0):
             r = m
         else:
-            l = m
+            l = m  
 
     return l, r
 
@@ -93,7 +94,7 @@ def newton(eps, x, a, b, c, d):
     f = count_function(x, a, b, c, d)
 
     while abs(f) > eps:
-        x = x - f/diff(x, a, b, c, d)
+        x = x - (f + .0)/diff(x, a, b, c, d)
         f = count_function(x, a, b, c, d)
     return x
 
@@ -101,7 +102,7 @@ def simple_iterations(eps, x, a, b, c, d):
     f = count_function(x, a, b, c, d)
     l0 = diff(x, a, b, c, d)
     while abs(f) > eps:
-        x = x - f/l0
+        x = x - (f + .0)/l0
         f = count_function(x, a, b, c, d)
     return x
 
@@ -111,7 +112,7 @@ a = int(input("a:"))
 b = int(input("b:"))
 c = int(input("c:"))
 d = int(input("d:"))
-eps = 0.000001
+eps = 0.00001
 
 (l1, r1), (l2, r2), (l3, r3) = localize(a, b, c, d)
 
