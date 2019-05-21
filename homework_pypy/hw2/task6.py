@@ -1,12 +1,5 @@
 import numpy as np
-
-
-def inverse_matrix(m):
-    return np.linalg.inv(np.array(m)).tolist()
-
-
-def transpose_matrix(m):
-	return np.array(m).T.tolist()
+from utils import inverse_matrix
 
 
 def matrix_rate(m):
