@@ -99,24 +99,28 @@ def half_division(eps, l, r, a, b, c, d):
 
 
 def newton(eps, x, a, b, c, d):
+    cnt = 0
     f = count_function(x, a, b, c, d)
 
     while abs(f) > eps:
+        cnt += 1
         x = x - (f + .0)/diff(x, a, b, c, d)
         f = count_function(x, a, b, c, d)
-    return x
+    return (x, cnt)
 
 def simple_iterations(eps, x, a, b, c, d):
+    cnt = 0
     f = count_function(x, a, b, c, d)
     l0 = diff(x, a, b, c, d)
     l0 = l0 * 2.0
     while abs(f) > eps:
+        cnt += 1
         x = x - (f + .0)/l0
         f = count_function(x, a, b, c, d)
-    return x
+    return (x, cnt)
 
 print("a * x^3 + b * x^2 + c * x + d = 0")
-print("a = 1, b = 2, c = -13, d = 10")
+# print("a = 1, b = 2, c = -13, d = 10")
 a = int(input("a:"))
 b = int(input("b:"))
 c = int(input("c:"))
