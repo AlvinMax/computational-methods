@@ -7,5 +7,7 @@ def read_matrix(path):
 		m.append([float(x) for x in line.split()])
 	return m
 
-m = read_matrix("/home/artem/Projects/CM/computational-methods/homework_pypy/hw2/tests/test1.in")
-print(task5.gradient_it(m, 0.00001))
+m = read_matrix("./tests/test1.in")
+
+(gr_res, gr_it) = task5.gradient_it(m, 0.00001)
+print("Результат вычислений:: ", gr_res, " при eps=", eps, " и количестве итераций::", gr_it)
