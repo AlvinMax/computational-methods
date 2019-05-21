@@ -6,7 +6,7 @@ def inverse_matrix(m):
 
 
 def transpose_matrix(m):
-    return np.array(m).transpose().tolist()
+	return np.array(m).T.tolist()
 
 
 def matrix_rate(m):

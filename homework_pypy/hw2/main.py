@@ -7,7 +7,9 @@ def read_matrix(path):
 		m.append([float(x) for x in line.split()])
 	return m
 
+eps = 0.00001
 m = read_matrix("./tests/test1.in")
 
-(gr_res, gr_it) = task5.gradient_it(m, 0.00001)
-print("Результат вычислений:: ", gr_res, " при eps=", eps, " и количестве итераций::", gr_it)
+(gr_res, gr_it) = task5.gradient_it(m, eps)
+print("".join(["Result==", str(gr_res), " with eps==", str(eps), " count of iteration==", str(gr_it)]))
+# print("Result== ", gr_res, " with eps==", eps, " count of iteration==", gr_it)
