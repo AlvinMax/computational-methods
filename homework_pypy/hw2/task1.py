@@ -13,7 +13,7 @@ def gauss(m):
         ind = i
 
         for j in range(i, len(m[0]) - 1):
-            if m[j][i] > max_el:
+            if abs(m[j][i]) > max_el:
                 max_el = m[j][i]
                 ind = j
 

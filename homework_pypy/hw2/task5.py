@@ -10,7 +10,7 @@ def gradient_it(m, eps):
 	z0 = r0
 	s0 = r0
 
-	for i in range(0, len(B)):
+	for i in range(0, 2 * len(B)):
 		sub = ut.subst(A, z0)
 		prev_p = p0
 		prev_r = r0

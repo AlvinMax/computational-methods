@@ -1,4 +1,4 @@
-from utils import minus, plus, subst
+from utils import minus, plus, subst, split_at
 
 def jacobi (m, eps):
     (A, f) = split_at(m)
@@ -11,18 +11,18 @@ def jacobi (m, eps):
         print("norma > 1, error")
     e1 = (1 - n) / n * eps
     while (minus(x, prev) > e1):
-        cnt++
+        cnt += 1
         prev = x
         x = plus(subst(B, prev), c)
     return (x, cnt)
 
 def norma (m):
-    max = 0
+    max1 = 0
     for i in range (0, len(m)):
         for j in range (0, len(m)):
-            if max < abs(m[i][j])
-            max = abs(m[i][j])
-    return max
+            if max1 < abs(m[i][j]):
+                max1 = abs(m[i][j])
+    return max1
 
 
 def to_iter (A, F):
