@@ -1,32 +1,31 @@
-from math import sqrt
-import utils
+import utils as ut
 
 def gradient_it(m, eps):
 	cnt = 0
 
-	(A, B) = split_at(m)
+	(A, B) = ut.split_at(m)
 	x0 = [0] * len(B)
-	r0 = minus(B, subst(A, x0))
+	r0 = ut.minus(B, ut.subst(A, x0))
 	p0 = r0
 	z0 = r0
 	s0 = r0
 
 	for i in range(0, len(B)):
-		sub = subst(A, z0)
+		sub = ut.subst(A, z0)
 		prev_p = p0
 		prev_r = r0
-		At = transpose_matrix(A)
+		At = ut.transpose_matrix(A)
 		# print(At)
 
-		a  = scalar_product(p0, r0) / scalar_product(s0, sub)
-		x0 = plus(x0, mul(a, z0))
-		r0 = minus(r0, mul(a, sub))
-		p0 = minus(p0, mul(a, subst(At, s0)))
-		b  = scalar_product(p0, r0) / scalar_product(prev_p, prev_r)
-		z0 = plus(r0, mul(b, z0))
-		s0 = plus(p0, mul(b, s0))
+		a  = ut.scalar_product(p0, r0) / ut.scalar_product(s0, sub)
+		x0 = ut.plus(x0, ut.mul(a, z0))
+		r0 = ut.minus(r0, ut.mul(a, sub))
+		p0 = ut.minus(p0, ut.mul(a, ut.subst(At, s0)))
+		b  = ut.scalar_product(p0, r0) / ut.scalar_product(prev_p, prev_r)
+		z0 = ut.plus(r0, ut.mul(b, z0))
+		s0 = ut.plus(p0, ut.mul(b, s0))
 
-		if abs(norm(r0) / norm(B)) < eps:
+		if abs(ut.norm(r0) / ut.norm(B)) < eps:
 			break
 		cnt += 1
 
