@@ -21,7 +21,7 @@ def jacobi (m, eps):
 def myNorm(x):
     max1 = 0
     for i in range (0, len(x)):
-        if (max1) < abs(x[i])
+        if (max1) < abs(x[i]):
             max1 = abs(x[i])
     return max1
 
