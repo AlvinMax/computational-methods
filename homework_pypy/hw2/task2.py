@@ -8,15 +8,13 @@ def jacobi (m, eps):
     cnt = 1
     n = norma(B)
     if (n >= 1):
-        print("Норма матрицы > 1, метод не сойдется")
+        print("norma > 1, error")
     e1 = (1 - n) / n * eps
     while (minus(x, prev) > e1):
         cnt++
         prev = x
         x = plus(subst(B, prev), c)
-    print("Количество шагов Якоби: ")
-    print(cnt)
-    return x
+    return (x, cnt)
 
 def norma (m):
     max = 0
