@@ -1,4 +1,4 @@
-import utils
+from utils import mul, minus 
 
 def swap_str(m, i, j):
     tmp = m[i]
@@ -28,7 +28,7 @@ def gauss(m):
                 if m[j][k] < 0.0001:
                     m[j][k] = 0
 
-    print(m)
+    # print(m)
     x = [0] * len(m)
     for i in range(len(m) - 1, -1, -1):
         a = 0
