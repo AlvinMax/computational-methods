@@ -12,11 +12,18 @@ def jacobi (m, eps):
         print("norma > 1, Jacobi error")
         return ([[]], 0)
     e1 = (1 - n) / n * eps
-    while (minus(x, prev) > e1):
+    while (myNorm(minus(x, prev)) > e1):
         cnt += 1
         prev = x
         x = plus(subst(B, prev), c)
     return (x, cnt)
+
+def myNorm(x):
+    max1 = 0
+    for i in range (0, len(x)):
+        if (max1) < abs(x[i])
+            max1 = abs(x[i])
+    return max1
 
 def norma (m):
     max1 = 0
