@@ -12,7 +12,8 @@ def read_matrix(path):
 	return m
 
 eps = 0.00001
-m = read_matrix("./tests/test3.in")
+m = read_matrix("./tests/test2.in")
+# m = utils.gilbert_matrix(5)
 m_g = copy.copy(m)
 m_test = copy.copy(m)
 m_j = copy.copy(m)
@@ -27,4 +28,4 @@ print("".join(["Jacobi Result==", str(jacob_res), " with eps==", str(eps), " cou
 (gr_res, gr_it) = task5.gradient_it(m, eps)
 print("".join(["Gradient Result==", str(gr_res), " with eps==", str(eps), " count of iteration==", str(gr_it)]))
 # print("Result== ", gr_res, " with eps==", eps, " count of iteration==", gr_it)
-print(utils.subst(m_test, gauss_res))
+print(utils.subst(m_test, gr_res))

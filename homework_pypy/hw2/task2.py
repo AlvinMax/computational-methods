@@ -31,6 +31,7 @@ def to_iter (A, F):
     C = [0] * len(F)
     for i in range (0, len(B)):
         for j in range (0, len(B)):
+            print(A)
             if (i == j):
                 B[i][j] = 0
             else:
