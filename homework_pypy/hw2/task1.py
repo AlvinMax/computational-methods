@@ -1,20 +1,10 @@
+from utils import minus, mul
+
 def swap_str(m, i, j):
     tmp = m[i]
     m[i] = m[j]
     m[j] = tmp
     return m
-
-
-def minus(b, r):
-    return [e_b - e_r for e_b, e_r in zip (b, r)]
-
-
-def plus(b, r):
-    return [e_b + e_r for e_b, e_r in zip (b, r)]
-
-
-def mul(k, l):
-    return [e_l * k for e_l in l]
 
 
 def gauss(m):
