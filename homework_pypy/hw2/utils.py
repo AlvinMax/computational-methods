@@ -45,5 +45,5 @@ def gilbert_matrix(n):
     return [[1.0 / (1.0 + i + j) for i in range(n)] for j in range(n)]
 
 
-def gilber_test(n):
+def gilbert_test(n):
     return np.hstack((np.array(gilbert_matrix(n)), np.ones((n, 1)))).tolist()
