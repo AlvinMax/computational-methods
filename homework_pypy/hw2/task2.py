@@ -1,4 +1,5 @@
 from utils import minus, plus, subst, split_at
+from copy import copy
 
 def jacobi (m, eps):
     (A, f) = split_at(m)
@@ -26,7 +27,7 @@ def norma (m):
 
 
 def to_iter (A, F):
-    B = A
+    B = copy(A)
     C = [0] * len(F)
     for i in range (0, len(B)):
         for j in range (0, len(B)):
