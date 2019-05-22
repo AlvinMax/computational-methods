@@ -9,8 +9,8 @@ def jacobi (m, eps):
     cnt = 1
     n = norma(B)
     if (n >= 1):
-        print("norma > 1, error")
-        return (m, 0)
+        print("norma > 1, Jacobi error")
+        return ([[]], 0)
     e1 = (1 - n) / n * eps
     while (minus(x, prev) > e1):
         cnt += 1
