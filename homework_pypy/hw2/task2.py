@@ -1,5 +1,5 @@
 from utils import minus, plus, subst, split_at
-import copy
+from copy import deepcopy
 
 def jacobi (m, eps):
     (A, f) = split_at(m)
@@ -10,6 +10,7 @@ def jacobi (m, eps):
     n = norma(B)
     if (n >= 1):
         print("norma > 1, error")
+        return (m, 0)
     e1 = (1 - n) / n * eps
     while (minus(x, prev) > e1):
         cnt += 1
@@ -27,13 +28,10 @@ def norma (m):
 
 
 def to_iter (A, F):
-    B = copy.deepcopy(A)
+    B = deepcopy(A)
     C = [0] * len(F)
     for i in range (0, len(B)):
         for j in range (0, len(B)):
-            # print(A)
-            # print("________")
-            # print(B)
             if (i == j):
                 B[i][j] = 0
             else:
