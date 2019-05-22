@@ -1,5 +1,5 @@
 from utils import minus, plus, subst, split_at
-from copy import copy
+import copy
 
 def jacobi (m, eps):
     (A, f) = split_at(m)
@@ -27,11 +27,13 @@ def norma (m):
 
 
 def to_iter (A, F):
-    B = copy(A)
+    B = copy.deepcopy(A)
     C = [0] * len(F)
     for i in range (0, len(B)):
         for j in range (0, len(B)):
-            print(A)
+            # print(A)
+            # print("________")
+            # print(B)
             if (i == j):
                 B[i][j] = 0
             else:

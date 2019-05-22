@@ -21,6 +21,9 @@ m_j = copy.copy(m)
 gauss_res = task1.gauss(m_g)
 print("".join(["Gauss Result==", str(gauss_res)]))
 
+
+# print(m_g)
+# print(m_j)
 (jacob_res, j_it) = task2.jacobi(m_j, eps)
 print("".join(["Jacobi Result==", str(jacob_res), " with eps==", str(eps), " count of iteration==", str(j_it)]))
 
